@@ -1,0 +1,56 @@
+
+<style> 
+    .meuEstilu{
+       /* background-color: rgb(77, 203, 219);*/
+        color: rgb(39, 27, 212);
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+       
+        font-family: Arial, sans-serif;
+    }
+    .meuEstilo{
+       
+        color: rgb(13, 139, 9);
+        padding: 3px;
+        border: none;
+        border-radius: 1px;
+       
+        font-family: Arial, sans-serif;
+    }
+
+    h3{
+        font-family: 'Poppins', sans-serif; 
+        font-size: 24px;
+        font-weight: bold;
+        color: #000000;
+        text-transform: uppercase; /* deixa o texto em maiúsculas */
+        text-align: center;
+        padding: 10px; /* espaçamento interno */
+        margin: 20px 0; /* espaçamento externo */
+        background: linear-gradient(45deg, #85ff33, #3968e7); /* fundo com gradiente */
+        border-radius: 8px;
+        box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.2);
+        display: inline-block; /*ajusta tamanho ao conteudo */
+        
+    }
+</style>
+
+
+<h3>
+Alcool ou Gasolina?
+</h3>
+</br>
+<script>
+var tanque = 40;
+var caminhoGasolina = 480;
+var caminhoAlcohol = 300;
+var consumoGasolina = caminhoGasolina / tanque;
+var consumoAlchohol = caminhoAlcohol / tanque;
+
+document.write('<p class = meuEstilo> O consumo de Gasolina e: ' + consumoGasolina.toFixed(2) + "!!!" + '</p>')
+document.write('<p class = meuEstilo> O consumo de Alchohol e: ' + consumoAlchohol.toFixed(2) + "!!!" + '</p>')
+
+
+    
+</script>
