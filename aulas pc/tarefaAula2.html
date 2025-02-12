@@ -18,6 +18,16 @@
        
         font-family: Arial, sans-serif;
     }
+    .meuEstiloLetrasMiudas{
+       
+       color: rgb(177, 166, 18);
+       padding: 3px;
+       border: none;
+       border-radius: 1px;
+      
+       font-family: Arial, sans-serif;
+       font-size: small;
+   }
 
     h3{
         font-family: 'Poppins', sans-serif; 
@@ -46,10 +56,18 @@ var tanque = 40;
 var caminhoGasolina = 480;
 var caminhoAlcohol = 300;
 var consumoGasolina = caminhoGasolina / tanque;
-var consumoAlchohol = caminhoAlcohol / tanque;
+var consumoAlcohol = caminhoAlcohol / tanque;
+var preçoAlcohol = 4.72;
+var preçoGasolina = 6.44;
+var preçoPorKmGasolina = preçoGasolina / caminhoGasolina
+var preçoPorKmAlcohol = preçoAlcohol / caminhoAlcohol
+
 
 document.write('<p class = meuEstilo> O consumo de Gasolina e: ' + consumoGasolina.toFixed(2) + "!!!" + '</p>')
-document.write('<p class = meuEstilo> O consumo de Alchohol e: ' + consumoAlchohol.toFixed(2) + "!!!" + '</p>')
+document.write('<p class = meuEstiloLetrasMiudas> O prço por km (gasolina) e: ' + preçoPorKmGasolina.toFixed(2) + '</p>')
+document.write('<p class = meuEstilo> O consumo de Alchohol e: ' + consumoAlcohol.toFixed(2) + "!!!" + '</p>')
+document.write('<p class = meuEstiloLetrasMiudas> O prço por km (alcool) e: ' + preçoPorKmAlcohol.toFixed(2) + '</p>')
+
 
 
     
