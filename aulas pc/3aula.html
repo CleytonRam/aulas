@@ -1,0 +1,152 @@
+<style> 
+    .meuEstilu{
+       /* background-color: rgb(77, 203, 219);*/
+        color: rgb(39, 27, 212);
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+       
+        font-family: Arial, sans-serif;
+    }
+    .meuEstilo{
+       
+        color: rgb(13, 139, 9);
+        padding: 3px;
+        border: none;
+        border-radius: 1px;
+       
+        font-family: Arial, sans-serif;
+    }
+
+    h3{
+        font-family: 'Poppins', sans-serif; 
+        font-size: 24px;
+        font-weight: bold;
+        color: #0f087c;
+        text-transform: uppercase; /* deixa o texto em maiúsculas */
+        text-align: center;
+        padding: 10px; /* espaçamento interno */
+        margin: 20px 0; /* espaçamento externo */
+        background: linear-gradient(45deg, #55ff33, #33f1ff); /* fundo com gradiente */
+        border-radius: 8px;
+        box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.2);
+        display: inline-block; /*ajusta tamanho ao conteudo */
+        
+    }
+</style>
+
+
+<h3>
+PROGRAMA DOS GURI 
+</h3>
+</br>
+<script>
+    document.write("Minha idade e " + 22 , "</br>");
+    document.write("A soma das nossas idades e: ");
+    document.write(22 + 32 + 26, "</br>");
+    document.write("A media das nossas idades: ");
+    document.write(((22+32+26)/3).toFixed(2), "</br>");
+
+    document.write('<p class = meuEstilu>Minha idade e ' + 22 + '</p>');
+    document.write('<p class = meuEstilu>A soma das nossas idades e: ' + (22 + 32 + 26) + '</p>');
+    document.write('<p class = meuEstilu>A media das nossas idades e: ' + ((22 + 32 + 26) / 3).toFixed(2) + '</p>');
+
+    const ano = 2024;
+    const eu = 22;
+    const adriano = 26;
+    const paulinho = 32;
+    const total = eu + adriano + paulinho;
+    const media = total / 3;
+
+    function soma(numero1, numero2) {
+        //codigo
+        if (typeof numero1 === "string" || typeof numero2 === "string") {
+            return console.error('Não da pra somar letra e numero seu corno')
+        }
+
+        return numero1 + numero2
+    }
+
+
+    console.log(soma(5, 7))
+    
+
+    const teste = () => {
+        //funcao anonima
+    }
+
+    const obj = {
+        funcao() {
+
+        }
+    }
+
+
+    obj.funcao()
+
+
+    class Teste {
+        constructor() {}
+
+        funcao() {}
+    }
+
+    const blabla = new Teste()
+    blabla.funcao()
+
+    function pulaLinha(){
+        document.write("<br>")
+        document.write("<br>")
+
+    }
+
+    function drawLine(){
+        document.write("<hr>")
+    }
+
+    function showPhrase(frase){
+        
+        document.write('<p class = "meuEstilo">' + frase);
+        pulaLinha();
+    }
+
+    function monkee(){
+        console.log(`
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣿⣶⢠⣾⣿⣿⣶⣦⣀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⣀⡀⠀
+    ⠀⠀⡀⠤⠤⢤⣿⣿⣿⣿⣿⣿⣿⡏⠈⣿⣿⣿⣿⣿⣿⣿⣿⣍⣴⣶⣾⣵⡄⠀ 
+    ⠀⣬⣾⠿⢷⣮⣿⣿⡿⠛⠉⠉⠉⠉⠀⠀⠀⠈⠉⠙⢿⣿⣿⣿⣿⡇⠉⠉⡹⠀ 
+    ⠀⢉⠀⢀⢸⢿⣿⣿⠀⠠⡲⣶⠶⡆⠀⡶⢛⣉⡠⡂⠀⢿⣿⣿⡟⣡⠿⠎⠁⠀ 
+    ⠀⠀⠑⠻⠳⣼⣿⣿⡄⠈⠘⠿⠓⠙⠀⠃⠚⠛⠁⠀⠀⢸⣿⣿⣿⡅⠊⠀⠀⠀ 
+    ⠀⠀⠀⠀⠀⠊⢽⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣿⣿⣿⡙⠃⠀⠀⠀
+    ⠀⠀⠀⠀⠀ ⢸⣿⣿⣿⡗⠀⠀⠐⠄⠔⠀⠀⠀⠀⢻⣿⣿⣟⢷⠀⠀⠀⠀⠀ ⠀
+    ⠀⠀⠀⠀⠀ ⠘⢹⣿⣿⡅⠀⠀⠀⠀⠀⠀⠀⠀⣀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀  
+⠀⠀⠀⠀⠀⠀     ⢸⣿⣿⣷⣦⣤⣤⣤⣤⠤⠔⣊⣿⣿⣿⣟⢿⡇⠀⠀⠀⠀⠀ 
+⠀⠀⠀⠀⠀⠀⠀    ⠘⡟⣿⣿⣷⡐⠶⠶⠶⠖⢻⣿⣿⣿⣿⣿⠀⠃⠀⠀⠀⠀⠀ 
+⠀⠀⠀           ⠈⢿⠻⣿⣷⣶⣶⣶⣿⡏⠻⣿⠈⠻⠀⠀
+⠀⠀                ⠙⣿⣿⠀⠹⣿⡇⠀⠋⠀⠀⠀ 
+⠀                  ⠈⠻⡆⠀⠹⠁⠀
+              RETURN TO MONKEEE!
+    `)
+    }
+
+
+    document.write('<p class = meuEstilo>Eu nasci em: ' + (ano - eu) + '</p>')  
+    document.write('<p class = meuEstilo>Adriano nasceu em: ' + (ano - adriano) + '</p>')
+    document.write('<p class = meuEstilo>Paulito nasceu em: ' + (ano - paulinho) + '</p>')
+    document.write('<p class = meuEstilo>A soma das idades e: ' + total + '</p>')   
+    document.write('<p class = meuEstilo>A media das idades e: ' + media.toFixed(2) + '</p>')
+
+    pulaLinha();
+    document.write("OI");   
+    pulaLinha();    
+    showPhrase("EU");       
+    drawLine();
+    showPhrase( "é os guri");
+    monkee();
+
+
+
+    
+</script>
