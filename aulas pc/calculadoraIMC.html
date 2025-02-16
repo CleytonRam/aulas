@@ -1,0 +1,67 @@
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de IMC</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+    }
+
+    button{
+        background-color: blueviolet;
+        color: white;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover{
+        background-color: aqua;
+    }
+    #resultado{
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+</head>
+
+<body>
+    <h1>Calculadora de IMC</h1>
+<button id="meuBotao">Clique aqui para calcular seu IMC</button>
+<p id="resultado"></p>
+
+<script>
+
+function calculoIMC(){
+    const nome = prompt("Qual é seu nome?");      
+    let peso = prompt("Digite seu peso em kg:");
+    let altura = prompt("Digite sua altura em metros (ex: 1.75):");
+
+    peso = parseFloat(peso)
+    altura = parseFloat(altura)
+
+    if(!nome || isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0){
+        alert("Coloque datos validos seu animal");
+        document.getElementById("resultado").innerHTML = ""
+        return;
+    }
+
+    const imc = peso / (altura * altura);
+
+    document.getElementById("resultado").innerHTML = ` Olá, <strong>${nome}</strong>! Seu IMC é <strong>${imc.toFixed(2)}</strong>`;
+
+   }
+
+    document.getElementById("meuBotao").addEventListener("click", calculoIMC)
+
+</script>
+</body>
+</html>
