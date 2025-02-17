@@ -1,0 +1,85 @@
+<html lang = "pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device width, initial-scale = 1.0">
+        <title>Batimentos cardiacos</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin: 50px;
+            }
+        
+            button{
+                background-color: blueviolet;
+                color: white;
+                font-size: 18px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+        
+            button:hover{
+                background-color: aqua;
+            }
+            #resultado{
+                margin-top: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
+        </style>
+    </head> 
+    <body>
+        <h2>Batimentos Cardiacos</h2>
+        <button id = "botaoDosGuri">Clique aqui para saber seus dias de vida</button>
+        <button id = "botaoDasGuria">Clique aqui para saber seus batimentos</button>
+        <button id = "botaoApagar">APAGAR</button>
+        <p id="resultadoDias"></p>
+        <p id="resultadoBatimentos"></p>
+
+
+        <script>
+            let dias = 0;
+            function calcularDias(){
+                const nome = prompt("Qual seu nome?");
+                let idade = prompt("Quantos anos você tem?");
+                idade = parseFloat(idade);
+                
+                if(!nome || isNaN(idade)){
+                    alert("Coloque datos validos amigo!!");
+                    document.getElementById("resultadoDias").innerHTML = "";
+                    return;
+                }
+                dias = idade * 364;   
+
+                document.getElementById("resultadoDias").innerHTML = `Ola, <strong>${nome}</strong> você ja viveu: <strong>${dias}</strong> dias de vida `
+            }
+            function calcularBatimentos(){
+                if(dias === 0){
+                    alert("Primero, clique para calcular os dias de vida");
+                    return;
+                }
+
+                let batimentos = dias * 24 * 60 * 80;
+                document.getElementById("resultadoBatimentos").innerHTML = `Seu Coraçao ja bateu aproximadamente <strong>${batimentos.toLocaleString()}</strong> vezes meu chapa!`;
+            }
+            function apagar(){
+                alert("Apagado");
+                document.getElementById("resultadoDias").innerHTML = "";
+                document.getElementById("resultadoBatimentos").innerHTML = "";
+
+            }
+            
+            document.getElementById("botaoDosGuri").addEventListener("click", calcularDias)
+            document.getElementById("botaoDasGuria").addEventListener("click", calcularBatimentos)
+            document.getElementById("botaoApagar").addEventListener("click", apagar)
+
+
+
+        </script>
+    </body>
+    
+</html>
