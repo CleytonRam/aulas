@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto AV1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode .container {
+            background: #444;
+            color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .dark-mode h1 {
+            color: #f4f4f4;
+        }
+        input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .dark-mode li {
+            background: #555;
+            border-bottom: 1px solid #444;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background: #680e17;
+        }
+        .dark-mode .remove-btn {
+            background: #a00;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+        }
+        .navbar .title {
+            font-size: 24px;
+        }
+        .dark-mode .navbar {
+            background: #02330d;
+        }
+        .navbar .dark-mode-toggle {
+            cursor: pointer;
+        }
+        .navbar .dark-mode-toggle i {
+            font-size: 24px; 
+        }
+        .navbar .dark-mode-toggle i:hover {
+            color: #0a0909;
+        }
+        li > input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        li > span {
+            flex: 1;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">Projeto AV1</div>
+        <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <input type="text" id="taskInput" placeholder="Adicione uma tarefa">
+        <button onclick="addTask()">Adicionar</button>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        function saveTasks() {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function carregarTasks() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+                
+                const checkBox = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.checked = task.completed;
+                checkBox.onchange = () => mudarTask(index);
+                
+                const taskName = document.createElement("span");
+                taskName.textContent = task.name;
+                if (task.completed) {
+                    li.classList.add("completed");
+                }
+
+                const removeBtn = document.createElement("button");
+                removeBtn.textContent = "Remover";
+                removeBtn.classList.add("remove-btn");
+                removeBtn.onclick = () => removeTask(index);
+
+                li.prepend(checkBox);
+                li.appendChild(taskName);
+                li.appendChild(removeBtn);
+                taskList.appendChild(li);
+            });
+        }
+
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            if (taskInput.value.trim() === "") {
+                return alert("Digite uma tarefa");
+            }
+            tasks.push({
+                name: taskInput.value,
+                completed: false
+            });
+            taskInput.value = "";
+            saveTasks();
+            carregarTasks();
+        }
+
+        function mudarTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            saveTasks();
+            carregarTasks();
+        }
+
+        function removeTask(index) {
+            tasks.splice(index, 1);
+            saveTasks();
+            carregarTasks();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        carregarTasks();
+    </script>
+</body>
+</html>

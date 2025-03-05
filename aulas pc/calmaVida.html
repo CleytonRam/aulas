@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <title>CalmaCalma</title>
+    <style>
+        body{
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        iframe{
+            width: 1920px; 
+            height: 1080px;
+            border: none;
+            display: none;
+        }
+        button{
+            background-color: aqua;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myBotao">Calma</button>
+    <iframe 
+    id="vid"
+    src="https://www.youtube.com/embed/Id6i7JP-1bs?si=T9F_C97_4LFWCWaI"
+    frameborder= "0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+    <script>
+        const botao = document.getElementById("myBotao");
+        let video = document.getElementById("vid");
+
+
+        botao.addEventListener("click", () => {
+            if(video.style.display === "none"){
+                video.style.display = "block";
+                botao.textContent = "Calabreso"
+            }else{
+                video.style.display = "none";
+                botao.textContent = "Calma";
+            }
+
+        });
+    </script>
+</body>
+</html>
